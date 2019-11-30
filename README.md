@@ -22,3 +22,7 @@ Content: (Main descritption)<br>
 
 ## About Branch
 Every submit should commit to branch "Work" not the Master.<br>
+
+## Framework
+Android Framework: MVP
+Backend Framework: Spring boot
