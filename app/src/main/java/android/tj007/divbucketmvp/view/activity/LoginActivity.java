@@ -1,13 +1,13 @@
 package android.tj007.divbucketmvp.view.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.tj007.divbucketmvp.R;
-import android.tj007.divbucketmvp.presenter.impl.LoginAPresenterImpl;
+import android.tj007.divbucketmvp.presenter.LoginAPresenterImpl;
 import android.tj007.divbucketmvp.presenter.inter.ILoginAPresenter;
 import android.tj007.divbucketmvp.utils.OnSwipeTouchListener;
 import android.tj007.divbucketmvp.view.inter.ILoginAView;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -20,8 +20,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.concurrent.locks.Lock;
 
 public class LoginActivity extends AppCompatActivity implements ILoginAView {
 
@@ -112,6 +110,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginAView {
                 if(pwdLock==1 && emailLock==1){
                     if (mILoginAPresenter.login()){
                         Toast.makeText(LoginActivity.this,"Sign in successfully!"+ getEmail()+getUserPassWord(),Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                        startActivity(intent);
                     }else {
                         Toast.makeText(LoginActivity.this,"Sign in failed!",Toast.LENGTH_SHORT).show();
                     }

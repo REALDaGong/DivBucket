@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.Design.NoActionBar"
+    android:background="@color/colorPrimary"
+    tools:context=".view.activity.UploadAvatarActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_upload_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary"
+        app:subtitleTextColor="@android:color/white"
+        app:title="修改头像"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="@android:color/white">
+    </androidx.appcompat.widget.Toolbar>
+
+    <android.tj007.divbucketmvp.view.activity.view.CircleImageView
+        android:id="@+id/change_avatar"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_head"/>
+
+    <Button
+        android:id="@+id/upload_avatar_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:text="确认修改" />
+</RelativeLayout>
