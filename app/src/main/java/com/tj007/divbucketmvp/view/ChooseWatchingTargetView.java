@@ -1,4 +1,4 @@
-package com.tj007.divbucketmvp.chooseWatchingTarget;
+package com.tj007.divbucketmvp.view;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -18,46 +18,65 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.myapplication.R;
 
-import com.tj007.divbucketmvp.components.treeview.DomNode;
 import com.tj007.divbucketmvp.components.treeview.MyNodeViewFactory;
 import com.tj007.divbucketmvp.components.treeview.TreeNode;
 import com.tj007.divbucketmvp.components.treeview.TreeView;
+import com.tj007.divbucketmvp.contract.ChooseWatchingTargetContract;
+import com.tj007.divbucketmvp.model.warpper.SimplifiedDomNode;
 
 import org.jetbrains.annotations.NotNull;
 
 //注意这么个事情，转屏会导致activity销毁再创建，可能会导致潜在的空指针问题，可以禁止，但是我想想想别的“办法”？
-public class XMLViewFragment extends Fragment implements ChooseWatchingTargetContract.View {
+public class ChooseWatchingTargetView extends Fragment implements ChooseWatchingTargetContract.View {
 
-    private DomNode root=new DomNode();
+    private TreeNode root=new TreeNode();
+
+
     private TreeView treeView;
     private ViewGroup viewGroup;
     private SearchView searchBar;
 
     private ChooseWatchingTargetContract.Presenter mPresenter;
+    private String givenURL;
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle saveInstanceBundle){
         View view = inflater.inflate(R.layout.xml_list_fragment,container,false);
         initView(view);
+        mPresenter.asyncRequestHTML(givenURL);
         return view;
     }
 
-    //将来扔进helper。
-    private String showSelectedNodes(){
-        StringBuilder stringBuilder = new StringBuilder("you have selected:");
-        List<TreeNode> selectedNodes = treeView.getSelectedNodes();
-        for (int i=0;i<selectedNodes.size();i++){
-            if(i<5){
-                stringBuilder.append(selectedNodes.get(i).getValue().toString()+",");
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPresenter.detachView();
+    }
 
-            }else{
-                stringBuilder.append("...and more");
+    //{index}<name>或class=cls1,cls2或id={index}level2{index}level3
+    //{R}[regex]
+
+    //记录路径和主要内容
+
+    private List<String> All=new ArrayList<>();
+    public void saveSelectedNodes(){
+        List<List<TreeNode>> selectedNodes = treeView.getSelectedNodesWithAllAncestors();
+        mPresenter.saveAllPath(selectedNodes);
+        for (int i=0;i<selectedNodes.size();i++){
+            StringBuilder stringBuilder = new StringBuilder("");
+            List<TreeNode> list=selectedNodes.get(i);
+            for(int j=list.size()-2;j>=0;j--){
+                stringBuilder.append('{');
+                stringBuilder.append(list.get(j).getIndex());
+                stringBuilder.append('}');
+                stringBuilder.append(((SimplifiedDomNode)list.get(j).getValue()).getType());
             }
+            All.add(stringBuilder.toString());
         }
-        return stringBuilder.toString();
     }
 
 
@@ -127,8 +146,8 @@ public class XMLViewFragment extends Fragment implements ChooseWatchingTargetCon
         return this.isAdded();
     }
 
-    @Override
-    public void loadNewDOMTree(DomNode root) {
+    private void loadNewDOMTree() {
+        TreeNode root=mPresenter.getDomTree();
         if(treeView!=null){
             if(root==null) {
                 treeView.refreshTreeView();
@@ -160,4 +179,21 @@ public class XMLViewFragment extends Fragment implements ChooseWatchingTargetCon
     public void attachPresenter(@NotNull ChooseWatchingTargetContract.Presenter presenter) {
         mPresenter=presenter;
     }
+
+    @Override
+    public List<String> getAllPath() {
+        return All;
+    }
+
+    //获取其它fragment给的数据。
+    public void setData(String url){
+        givenURL=url;
+
+    }
+
+    @Override
+    public void informDomTreeUpdate() {
+        getActivity().runOnUiThread(this::loadNewDOMTree);
+    }
+
 }

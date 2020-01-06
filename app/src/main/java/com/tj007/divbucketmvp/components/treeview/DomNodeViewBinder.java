@@ -1,11 +1,11 @@
 
 package com.tj007.divbucketmvp.components.treeview;
-        import android.view.View;
+import android.view.View;
         import android.widget.ImageView;
         import android.widget.TextView;
 
         import com.example.myapplication.R;
-        import com.tj007.divbucketmvp.model.SimplifiedDomNode;
+        import com.tj007.divbucketmvp.model.warpper.SimplifiedDomNode;
         import com.tj007.divbucketmvp.components.treeview.base.CheckableNodeViewBinder;
 
 /**
@@ -28,10 +28,10 @@ public class DomNodeViewBinder extends CheckableNodeViewBinder {
 
     @Override
     public void bindView(final TreeNode treeNode) {
-        if(((DomNode)treeNode).getValue().getType()=="Dummy"){
-            textView.setText((((DomNode)treeNode).getValue()).getText());
+        if(((SimplifiedDomNode)treeNode.getValue()).getType().equals("Text")){
+            textView.setText(((SimplifiedDomNode)treeNode.getValue()).getText());
         }else {
-            SimplifiedDomNode node=((DomNode) treeNode).getValue();
+            SimplifiedDomNode node=(SimplifiedDomNode)treeNode.getValue();
             textView.setText(node.getType()+" class="+node.getCls()+" with id="+node.getId());
         }
         imageView.setRotation(treeNode.isExpanded() ? 90 : 0);

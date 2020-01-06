@@ -19,7 +19,7 @@
             For example:
         <version value="1" />
     -->
-    <version value="1" />
+    <version value="2" />
 
     <!--
         Define your models in the list with mapping tag, LitePal will
@@ -32,8 +32,9 @@
         </list>
     -->
     <list>
-        <mapping class="com.tj007.divbucketmvp.model.HtmlFilterPath" />
-        <mapping class="com.tj007.divbucketmvp.model.URL" />
+        <mapping class="com.tj007.divbucketmvp.model.persistent.HtmlFilterPath" />
+        <mapping class="com.tj007.divbucketmvp.model.persistent.URL" />
+        <mapping class="com.tj007.divbucketmvp.model.persistent.HtmlHistory"/>
     </list>
 
     <!--

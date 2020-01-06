@@ -6,6 +6,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 import static com.tj007.divbucketmvp.chooseWatchingTarget.utils.ASYNC_RES_STATE.*;
 
 
@@ -14,8 +17,9 @@ import static com.tj007.divbucketmvp.chooseWatchingTarget.utils.ASYNC_RES_STATE.
 
 /** 获得HTML.body的异步任务,传入1个URL。
  *  默认10000mill的超时时间
+ *
  */
-public class GetHTMLTask extends AsyncTask<String,Void,Element>{
+public class GetHTMLTask{
 
     /**
      *
@@ -23,36 +27,22 @@ public class GetHTMLTask extends AsyncTask<String,Void,Element>{
      */
 
     public GetHTMLTask(AsyncResponse delegate){
-        this.delegate=delegate;
+        callback=delegate;
     }
 
-    public AsyncResponse delegate = null;
+    public AsyncResponse callback = null;
 
-    private Exception e;
-
-    private ASYNC_RES_STATE netState=PENDING;
-
-    @Override
-    protected Element doInBackground(String... urls) {
-        try {
-            String URL=urls[0];
-            Document doc= Jsoup.connect(URL).timeout(10000).get();
-            netState=SUCCESS;
-            return doc.body();
-        }catch (Exception e){
-            this.e=e;
-            netState=ERROR;
-            e.printStackTrace();
-        }
-        return null;
+    public void execute(String URL){
+        Single.create((e)->{
+            Document doc = Jsoup.connect(URL).timeout(10000).get();
+            e.onSuccess(doc);
+        }).subscribeOn(Schedulers.io())
+                .subscribe(onSuccess-> {
+                            callback.processFinish(onSuccess,SUCCESS);
+                        },
+                        onError->{
+                            callback.processFailed(onError,ERROR);
+                        });
     }
-    @Override
-    protected void onPostExecute(Element element){
-        if (element==null){
-            delegate.processFinish(null,ERROR);
-        }
-        delegate.processFinish(element,SUCCESS);
-    }
-
 
 }

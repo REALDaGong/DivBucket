@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.myapplication.R
-import com.tj007.divbucketmvp.chooseWatchingTarget.TestActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,13 +17,13 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener {
-            startActivity(Intent(this, TestActivity::class.java))
+            startActivity(Intent(this, Main2Activity::class.java))
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.menu_show, menu)
         //searchItem = menu.findItem(R.id.)
         return true
     }
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_refresh -> true
             else -> super.onOptionsItemSelected(item)
         }
     }

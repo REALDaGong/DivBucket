@@ -74,6 +74,7 @@ public class TreeView implements SelectableTreeAction {
 
     public boolean setRoot(TreeNode node){
         if (adapter!=null){
+            this.root=node;
             return adapter.setRoot(node);
         }else{
             return false;
@@ -209,6 +210,12 @@ public class TreeView implements SelectableTreeAction {
     public List<TreeNode> getSelectedNodes() {
         return TreeHelper.getSelectedNodes(root);
     }
+
+    public List<TreeNode> getSelectedNodesMerged() {
+        return TreeHelper.getSelectedNodesMerged(root);
+    }
+
+    public List<List<TreeNode>> getSelectedNodesWithAllAncestors() {return TreeHelper.getSelectedNodesWithAllAncestors(root);}
 
     public boolean isItemSelectable() {
         return itemSelectable;

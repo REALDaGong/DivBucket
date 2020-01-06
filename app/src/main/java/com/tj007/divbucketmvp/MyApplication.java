@@ -14,4 +14,6 @@ public class MyApplication extends Application {
         context = getApplicationContext();
         LitePal.initialize(context);
     }
+
+
 }

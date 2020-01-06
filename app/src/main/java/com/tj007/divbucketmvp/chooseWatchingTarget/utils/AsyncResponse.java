@@ -1,5 +1,8 @@
 package com.tj007.divbucketmvp.chooseWatchingTarget.utils;
 
-public interface AsyncResponse<T> {
-    public void processFinish(T output, ASYNC_RES_STATE state);
+public abstract class AsyncResponse<T> implements callback<T> {
+    @Override
+    public void processFailed(Throwable throwable, ASYNC_RES_STATE state){
+        throwable.printStackTrace();
+    }
 }

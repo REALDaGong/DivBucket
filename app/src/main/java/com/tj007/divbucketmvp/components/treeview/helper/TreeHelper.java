@@ -270,6 +270,64 @@ public class TreeHelper {
         }
         return selectedNodes;
     }
+    /**
+     * 跟上面函数一样，也是选择全部，但是如果某一个节点的子节点全被选择，就不在列表里包括它的子节点，
+     * 只包括这一个节点。
+     */
+    public static List<TreeNode> getSelectedNodesMerged(TreeNode treeNode) {
+        List<TreeNode> selectedNodes = new ArrayList<>();
+        if (treeNode == null) {
+            return selectedNodes;
+        }
+
+        if (treeNode.isSelected() && treeNode.getParent() != null){
+            selectedNodes.add(treeNode);
+        }
+
+        for (TreeNode child : treeNode.getChildren()) {
+            selectedNodes.addAll(getSelectedNodesMerged(child));
+        }
+        if(treeNode.getChildren().size()!=0) {
+            //不是子节点
+            if (treeNode.getChildren().size() == selectedNodes.size()-1) {
+                //selectedNodes若是全选的话，应该包括所有子节点和它本身
+                //清空列表
+                selectedNodes.clear();
+                //只留自己
+                selectedNodes.add(treeNode);
+            }
+        }
+
+        return selectedNodes;
+    }
+    /**
+     *返回一个列表里套的列表，里面是选中的节点-它的父节点-父节点的父节点...直到根
+     */
+    public static List<List<TreeNode>> getSelectedNodesWithAllAncestors(TreeNode treeNode){
+        List<TreeNode> nodes=getSelectedNodesMerged(treeNode);
+        List<List<TreeNode>> re=new ArrayList<>();
+        for(TreeNode node:nodes){
+            re.add(getAncestors(node));
+        }
+
+
+        return re;
+    }
+
+    private static List<TreeNode> getAncestors(TreeNode treeNode){
+        List<TreeNode> ancestorNodes = new ArrayList<>();
+        ancestorNodes.add(treeNode);
+        TreeNode an=treeNode.getParent();
+        while(an!=null){
+            ancestorNodes.add(an);
+            an=an.getParent();
+        }
+        //移除空的头节点
+        if(ancestorNodes.size()!=0) {
+            ancestorNodes.remove(ancestorNodes.size() - 1);
+        }
+        return ancestorNodes;
+    }
 
     /**
      * Return true when the node has one selected child(recurse all children) at least,
