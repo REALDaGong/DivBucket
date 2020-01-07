@@ -1,16 +1,12 @@
 
 package com.tj007.divbucketmvp.components.treeview;
 import android.view.View;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import com.example.myapplication.R;
-        import com.tj007.divbucketmvp.model.warpper.SimplifiedDomNode;
-        import com.tj007.divbucketmvp.components.treeview.base.CheckableNodeViewBinder;
-
-/**
- * Created by zxy on 17/4/23.
- */
+import com.tj007.divbucketmvp.R;
+import com.tj007.divbucketmvp.model.warpper.SimplifiedDomNode;
+import com.tj007.divbucketmvp.components.treeview.base.CheckableNodeViewBinder;
 
 public class DomNodeViewBinder extends CheckableNodeViewBinder {
     TextView textView;

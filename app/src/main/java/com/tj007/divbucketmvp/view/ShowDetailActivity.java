@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+import com.tj007.divbucketmvp.R;
 import com.tj007.divbucketmvp.model.DatabaseManager;
 
 import java.util.List;

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.myapplication.R;
+import com.tj007.divbucketmvp.R;
 import com.tj007.divbucketmvp.presenter.ChooseWatchingTargetPresenter;
 
 import java.util.List;

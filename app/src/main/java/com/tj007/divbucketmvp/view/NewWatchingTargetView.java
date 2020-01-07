@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.R;
 import com.google.android.material.button.MaterialButton;
+import com.tj007.divbucketmvp.R;
 import com.tj007.divbucketmvp.contract.newWatchingTargetContract;
 import com.tj007.divbucketmvp.model.warpper.watchingTargetWarpper;
 import com.tj007.divbucketmvp.view.ChooseWatchingTargetActivity;

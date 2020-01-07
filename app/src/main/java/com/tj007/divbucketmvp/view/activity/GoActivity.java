@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import com.tj007.divbucketmvp.R;
+import com.tj007.divbucketmvp.view.Main2Activity;
+
 import android.view.WindowManager;
 
 public class GoActivity extends AppCompatActivity {
@@ -23,7 +25,7 @@ public class GoActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    Intent intent = new Intent(GoActivity.this, HomePageActivity.class);
+                    Intent intent = new Intent(GoActivity.this, Main2Activity.class);
                     startActivity(intent);
                     finish();
                 }

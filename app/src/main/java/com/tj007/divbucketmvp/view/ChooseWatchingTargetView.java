@@ -21,8 +21,7 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.myapplication.R;
-
+import com.tj007.divbucketmvp.R;
 import com.tj007.divbucketmvp.components.treeview.MyNodeViewFactory;
 import com.tj007.divbucketmvp.components.treeview.TreeNode;
 import com.tj007.divbucketmvp.components.treeview.TreeView;

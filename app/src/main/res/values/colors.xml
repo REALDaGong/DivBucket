@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textInputLayout">#96ffffff</color>
-    <color name="colorPrimary">#38ACFF</color>
-    <color name="colorPrimaryDark">#38ACFF</color>
-    <color name="colorAccent">#e6e6e6</color>
+
+    <color name="colorPrimary1">#FFFFFF</color>
+    <color name="colorPrimaryDark1">#FFFFFF</color>
+    <color name="colorAccent1">#2c2f36</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="textInputLayout">#96000000</color>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorAccent">#E7E3E3</color>
     <color name="colorGray">#55888888</color>
 
     <color name="white">#ffffff</color>

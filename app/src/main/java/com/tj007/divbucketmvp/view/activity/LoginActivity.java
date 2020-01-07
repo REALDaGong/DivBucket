@@ -10,6 +10,7 @@ import com.tj007.divbucketmvp.R;
 import com.tj007.divbucketmvp.contract.LoginContract;
 import com.tj007.divbucketmvp.presenter.LoginPresenter;
 import com.tj007.divbucketmvp.utils.OnSwipeTouchListener;
+import com.tj007.divbucketmvp.view.Main2Activity;
 import com.tj007.divbucketmvp.view.fragment.RegisteFragment;
 
 import android.os.Looper;
@@ -164,7 +165,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         editor.putString("email",getEmail());
         editor.putString("pwd",getUserPassWord());
         editor.commit();
-        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+        Intent intent = new Intent(LoginActivity.this, Main2Activity.class);
         startActivity(intent);
     }
 

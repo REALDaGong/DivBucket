@@ -21,8 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.R;
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
+import com.tj007.divbucketmvp.R;
 import com.tj007.divbucketmvp.chooseWatchingTarget.utils.ASYNC_RES_STATE;
 import com.tj007.divbucketmvp.chooseWatchingTarget.utils.AsyncResponse;
 import com.tj007.divbucketmvp.contract.showWatchingTargetContract;

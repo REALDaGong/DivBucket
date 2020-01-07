@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':library', ':library-debug'
 rootProject.name='DivBucket(MVP)'
