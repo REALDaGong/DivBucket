@@ -48,6 +48,29 @@
         </activity>
         <activity android:name="com.tj007.divbucketmvp.view.activity.LoginActivity" ></activity>
         <activity android:name="com.tj007.divbucketmvp.view.activity.ClipImageActivity" />
+
+
+
+        <activity
+            android:name="com.tj007.divbucketmvp.view.Main2Activity"
+            android:label="@string/title_activity_main2"></activity>
+
+        <meta-data
+            android:name="com.tj007.divbucketmvp"
+            android:value="string" />
+
+        <activity
+            android:name="com.tj007.divbucketmvp.view.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="com.tj007.divbucketmvp.view.ChooseWatchingTargetActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.tj007.divbucketmvp.view.ShowDetailActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

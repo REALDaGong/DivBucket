@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--本来想用databinding来搞子属性可变的子布局的，但是好像全世界都没人会这个。-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+        <EditText
+            android:id="@+id/URLtext"
+            style="@style/defaultEditText"
+            android:text=""
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="网址"
+            android:inputType="textUri|textPersonName"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+        <EditText
+            android:id="@+id/nametext"
+            style="@style/defaultEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="备注"
+            android:inputType="textUri|textPersonName"
+            android:singleLine="true"
+            android:text="" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:srcCompat="@android:drawable/btn_radio" />
+
+        <EditText
+            android:id="@+id/classtext"
+            style="@style/defaultEditText"
+            android:text=""
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="类别"
+            android:inputType="textUri|textPersonName"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/rulelist"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scrollbars="vertical" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addrule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="addrule"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ok!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+</LinearLayout>
+</layout>
