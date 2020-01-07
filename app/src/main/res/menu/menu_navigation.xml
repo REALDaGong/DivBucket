@@ -10,8 +10,7 @@
             <item
                 android:id="@+id/user_info_item"
                 android:icon="@drawable/ic_user"
-                android:title="个人信息"
-                app:actionLayout="@layout/bage_hint"/>
+                android:title="个人信息"/>
         </menu>
     </item>
 </menu>

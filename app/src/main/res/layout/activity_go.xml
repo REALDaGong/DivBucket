@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/divbucketgo_font"
-    tools:context=".view.activity.GoActivity">
+    tools:context="com.tj007.divbucketmvp.view.activity.GoActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

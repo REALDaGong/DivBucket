@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:theme="@style/Theme.Design.NoActionBar"
     android:background="@color/colorPrimary"
-    tools:context=".view.activity.UploadAvatarActivity">
+    tools:context="com.tj007.divbucketmvp.view.activity.UploadAvatarActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_upload_avatar"
@@ -19,7 +19,7 @@
         app:titleTextColor="@android:color/white">
     </androidx.appcompat.widget.Toolbar>
 
-    <android.tj007.divbucketmvp.view.activity.view.CircleImageView
+    <com.tj007.divbucketmvp.view.activity.view.CircleImageView
         android:id="@+id/change_avatar"
         android:layout_width="300dp"
         android:layout_height="300dp"

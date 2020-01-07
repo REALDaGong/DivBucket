@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.tj007.divbucketmvp">
+    package="com.tj007.divbucketmvp">
 
     <uses-feature
         android:name="android.hardware.camera.any"
@@ -22,8 +22,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_config"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.UserInfoActivity"></activity>
+
+        <activity android:name="com.tj007.divbucketmvp.view.activity.UserInfoActivity"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -35,17 +37,17 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".view.activity.UploadAvatarActivity" />
-        <activity android:name=".view.activity.HomePageActivity">
+        <activity android:name="com.tj007.divbucketmvp.view.activity.UploadAvatarActivity" />
+        <activity android:name="com.tj007.divbucketmvp.view.activity.HomePageActivity"></activity>
+        <activity android:name="com.tj007.divbucketmvp.view.activity.GoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.GoActivity" />
-        <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.ClipImageActivity" />
+        <activity android:name="com.tj007.divbucketmvp.view.activity.LoginActivity" ></activity>
+        <activity android:name="com.tj007.divbucketmvp.view.activity.ClipImageActivity" />
     </application>
 
 </manifest>
