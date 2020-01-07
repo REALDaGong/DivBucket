@@ -3,52 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!--本来想用databinding来搞子属性可变的子布局的，但是好像全世界都没人会这个。-->
+    android:layout_height="match_parent"
+    android:divider="@drawable/divider"
+    android:dividerPadding="@dimen/dp_10"
+    android:showDividers="middle">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
 
-        <ImageView
-
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            app:srcCompat="@android:drawable/btn_star_big_off" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center_vertical"
+            android:text="网址"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/URLtext"
             style="@style/defaultEditText"
-            android:text=""
+            android:layout_marginLeft="@dimen/dp_10"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="43dp"
+            android:background="@null"
             android:ems="10"
-            android:hint="网址"
-            android:inputType="textUri|textPersonName"
-            android:singleLine="true" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            app:srcCompat="@android:drawable/btn_star_big_off" />
-
-        <EditText
-            android:id="@+id/nametext"
-            style="@style/defaultEditText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="备注"
+            android:hint="必填"
             android:inputType="textUri|textPersonName"
             android:singleLine="true"
             android:text="" />
@@ -58,43 +42,112 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center_vertical"
+            android:text="备注"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
-            app:srcCompat="@android:drawable/btn_radio" />
+        <EditText
+            android:id="@+id/nametext"
+            style="@style/defaultEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="43dp"
+            android:layout_marginLeft="11dp"
+
+            android:layout_weight="1"
+            android:background="@null"
+            android:ems="10"
+            android:hint="选填"
+            android:inputType="textUri|textPersonName"
+            android:singleLine="true"
+            android:text="" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center_vertical"
+            android:text="类别"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/classtext"
             style="@style/defaultEditText"
-            android:text=""
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="43dp"
+            android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="1"
+            android:background="@null"
             android:ems="10"
-            android:hint="类别"
+            android:hint="选填"
             android:inputType="textUri|textPersonName"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="" />
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:text="监控路径"
+        android:gravity="center"/>
     <ListView
         android:id="@+id/rulelist"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="180dp"
         android:scrollbars="vertical" />
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addrule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:padding="@dimen/dp_10"
+            android:text="添加规则"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@color/colorPrimary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_weight="1"
+            android:padding="@dimen/dp_10"
+            android:text="添加完毕并保存"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@color/colorPrimary" />
+    </LinearLayout>
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addrule"
+        android:id="@+id/clear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="addrule"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ok"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ok!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:padding="@dimen/dp_10"
+        android:text="全部清除"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#FF0000" />
 
 </LinearLayout>
 </layout>

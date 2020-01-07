@@ -281,12 +281,8 @@ public class HomePageActivity extends AppCompatActivity implements HomePageUserC
                     switchFragment(showWatchingTargetView);
                     return true;
                 case R.id.navigation_dashboard:
-                    title.setText("新的监控");
+                    title.setText("监控统计");
                     switchFragment(newWatchingTargetView);
-                    return true;
-                case R.id.navigation_notifications:
-                    title.setText("四大皆空");
-                    //switchFragment(chooseWatchingTargetView);
                     return true;
             }
             return false;

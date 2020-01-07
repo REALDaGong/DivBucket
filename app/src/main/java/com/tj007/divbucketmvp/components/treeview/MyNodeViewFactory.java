@@ -5,9 +5,6 @@ import com.tj007.divbucketmvp.components.treeview.base.BaseNodeViewBinder;
 import com.tj007.divbucketmvp.components.treeview.base.BaseNodeViewFactory;
 
 
-/**
- * Created by zxy on 17/4/23.
- */
 
 public class MyNodeViewFactory extends BaseNodeViewFactory {
 
