@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.smailnet.emailkit.EmailKit;
 import com.smailnet.microkv.MicroKV;
@@ -33,6 +34,7 @@ import com.tj007.divbucketmvp.mailboxsystem.activity.ConfigActivity;
 import com.tj007.divbucketmvp.mailboxsystem.activity.MainActivity;
 import com.tj007.divbucketmvp.mailboxsystem.activity.SplashActivity;
 import com.tj007.divbucketmvp.presenter.HomePageUserPresenter;
+import com.tj007.divbucketmvp.presenter.StatisticPresenter;
 import com.tj007.divbucketmvp.presenter.newWatchingTargetPresenter;
 import com.tj007.divbucketmvp.presenter.showWatchingTargetPresenter;
 import com.tj007.divbucketmvp.utils.ScreenInfoUtils;
@@ -69,6 +71,10 @@ public class Main2Activity extends AppCompatActivity implements HomePageUserCont
 
     @BindView(R.id.host)
     FrameLayout host;
+
+    @BindView(R.id.floatbutton)
+    FloatingActionButton floatButton;
+
     private Toolbar toolbar;
 
     SharedPreferences sharedPreferences;
@@ -303,31 +309,43 @@ public class Main2Activity extends AppCompatActivity implements HomePageUserCont
                     switchFragment(showWatchingTargetView);
                     return true;
                 case R.id.navigation_dashboard:
-                    title.setText("新的监控");
-                    switchFragment(newWatchingTargetView);
-                    return true;
-                case R.id.navigation_notifications:
-                    title.setText("四大皆空");
-                    //switchFragment(chooseWatchingTargetView);
+                    title.setText("监控统计");
+                    switchFragment(statisticView);
                     return true;
             }
             return false;
         });
+        nav_view.getMenu().getItem(1).setEnabled(false);
+        floatButton.setOnClickListener((view -> {
+            nav_view.setSelectedItemId(nav_view.getMenu().getItem(1).getItemId());
+            switchFragment(newWatchingTargetView);
+            title.setText("新加网页监控");
+        }));
+
     }
+
+
 
     private Fragment currentFrag=new ShowWatchingTargetView();
 
     private void initMVP(){
         //全部实例化...
+
+
         newWatchingTargetView=new NewWatchingTargetView();
         newWatchingTargetPresenter presenter2=new newWatchingTargetPresenter(newWatchingTargetView);
         showWatchingTargetView=new ShowWatchingTargetView();
         showWatchingTargetPresenter presenter3=new showWatchingTargetPresenter(showWatchingTargetView);
+        statisticView=new StatisticView();
+        StatisticPresenter presenter4=new StatisticPresenter(statisticView);
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.host,newWatchingTargetView,newWatchingTargetView.getClass().getName())
                 .add(R.id.host,showWatchingTargetView,showWatchingTargetView.getClass().getName())
+                .add(R.id.host,statisticView,statisticView.getClass().getName())
                 .hide(newWatchingTargetView)
-                .hide(showWatchingTargetView);
+                .hide(showWatchingTargetView)
+                .hide(statisticView);
         transaction.commit();
 
         switchFragment(showWatchingTargetView);
@@ -335,6 +353,7 @@ public class Main2Activity extends AppCompatActivity implements HomePageUserCont
 
     private NewWatchingTargetView newWatchingTargetView;
     private ShowWatchingTargetView showWatchingTargetView;
+    private StatisticView statisticView;
 
     private void switchFragment(Fragment fragment){
         if(fragment==currentFrag) {

@@ -18,9 +18,6 @@ package com.tj007.divbucketmvp.components.treeview.animator;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * Created by xinyuanzhong on 2017/4/28.
- */
 
 public class TreeItemAnimator extends DefaultItemAnimator {
     @Override

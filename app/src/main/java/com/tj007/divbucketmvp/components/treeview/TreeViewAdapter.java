@@ -35,9 +35,7 @@ import com.tj007.divbucketmvp.components.treeview.base.CheckableNodeViewBinder;
 import com.tj007.divbucketmvp.components.treeview.helper.TreeHelper;
 import com.tj007.divbucketmvp.components.treeview.base.BaseNodeViewFactory;
 
-/**
- * Created by xinyuanzhong on 2017/4/21.
- */
+
 
 public class TreeViewAdapter extends RecyclerView.Adapter {
 

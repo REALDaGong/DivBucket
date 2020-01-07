@@ -13,6 +13,7 @@ import com.tj007.divbucketmvp.model.persistent.URL;
 import com.tj007.divbucketmvp.model.warpper.SimplifiedDomNode;
 
 import org.litepal.LitePal;
+import org.litepal.crud.LitePalSupport;
 import org.litepal.crud.callback.FindCallback;
 import org.litepal.crud.callback.FindMultiCallback;
 import org.litepal.crud.callback.SaveCallback;
@@ -32,11 +33,14 @@ public class DatabaseManager {
         SQLiteDatabase db = Connector.getDatabase();
         //?
     }
+
     private static DatabaseManager databaseManager=new DatabaseManager();
 
     public static DatabaseManager getInstance(){
         return databaseManager;
     }
+
+
 
     //目前这个方法配合着做一下activity之间传递数据的工作
     private List<List<TreeNode>> nodeCache=new ArrayList<>();
@@ -211,6 +215,20 @@ public class DatabaseManager {
     }
     public ArrayList<String> getOnlyHistroyWatchingResultByPath(String path){
         return null;
+    }
+
+    public void deleteUrlnoReturnValue(String url){
+        LitePal.deleteAllAsync(HtmlFilterPath.class,"url=?",url).listen((out)->{
+            return;
+        });
+        LitePal.deleteAllAsync(URL.class,"url=?",url).listen((out)->{
+            return;
+        });
+    }
+
+    //only for special use.
+    public void drop(LitePalSupport cls){
+        LitePal.deleteAllAsync(cls.getClass(),"1=1").listen((out)->{});
     }
 }
 class ModelUtil{

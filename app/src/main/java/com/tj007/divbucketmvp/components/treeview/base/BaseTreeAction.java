@@ -18,9 +18,7 @@ import java.util.List;
 
 import com.tj007.divbucketmvp.components.treeview.TreeNode;
 
-/**
- * Created by xinyuanzhong on 2017/4/20.
- */
+
 
 public interface BaseTreeAction {
     void expandAll();

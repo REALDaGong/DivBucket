@@ -17,9 +17,7 @@ package com.tj007.divbucketmvp.components.treeview;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by xinyuanzhong on 2017/4/20.
- */
+
 
 public class TreeNode {
     private int level;

@@ -21,9 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tj007.divbucketmvp.components.treeview.TreeNode;
 import com.tj007.divbucketmvp.components.treeview.TreeView;
 
-/**
- * Created by zxy on 17/4/23.
- */
+
 
 public abstract class BaseNodeViewBinder extends RecyclerView.ViewHolder {
     /**

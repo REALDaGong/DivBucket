@@ -35,6 +35,7 @@ public class NewWatchingTargetView extends Fragment implements newWatchingTarget
     private RuleAdapter adapter;
     private MaterialButton okButton;
     private MaterialButton addrule;
+    private MaterialButton clearRule;
 
     private ArrayList<String> rules=new ArrayList<>();
 
@@ -75,6 +76,7 @@ public class NewWatchingTargetView extends Fragment implements newWatchingTarget
         ruleList=view.findViewById(R.id.rulelist);
         okButton=view.findViewById(R.id.ok);
         addrule=view.findViewById(R.id.addrule);
+        clearRule=view.findViewById(R.id.clear);
 
         initRuleList();
         initButton();
@@ -191,6 +193,12 @@ public class NewWatchingTargetView extends Fragment implements newWatchingTarget
                 }
             });
         }
+        if(clearRule!=null){
+            clearRule.setOnClickListener((view -> {
+                rules.clear();
+                clearAll();
+            }));
+        }
     }
     //从textview里格式化数据的工具方法
     private String getUrl(){
@@ -221,10 +229,15 @@ public class NewWatchingTargetView extends Fragment implements newWatchingTarget
         nameField.setText("");
         urlField.setText("");
         rules.clear();
+        urlField.setFocusableInTouchMode(true);
+        urlField.setFocusableInTouchMode(true);
         adapter.notifyDataSetChanged();
     }
 
     public void addPath(String[] s){
+        //在第一次添加后禁用url的更改能力。
+        urlField.setFocusable(false);
+        urlField.setFocusableInTouchMode(false);
         for (String ss:s
              ) {
             addRuletoList(ss);

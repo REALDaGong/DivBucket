@@ -52,7 +52,22 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:src="@drawable/ic_big_plus_sign"
+                app:borderWidth="0dp"
+                app:elevation="6dp"
+                app:pressedTranslationZ="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/nav_view"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:rippleColor="#0097a7"
+                app:backgroundTint="@color/colorPrimary"/>
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/nav_view"
                 android:layout_width="0dp"
@@ -60,10 +75,12 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="0dp"
                 android:background="?android:attr/windowBackground"
+                app:elevation="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:menu="@menu/bottom_nav_menu" />
+                app:menu="@menu/bottom_nav_menu" >
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
 
             <FrameLayout
                 android:id="@+id/host"
@@ -75,19 +92,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 >
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="end|bottom"
-                    android:id="@+id/floatbutton"
-                    app:elevation="6dp"
-                    android:clickable="true"
-                    app:borderWidth="0dp"
-                    app:rippleColor="#0097a7"
-                    android:layout_marginBottom="80dp"
-                    android:layout_marginRight="30dp"
-                    android:src="@drawable/addto"
-                    app:pressedTranslationZ="12dp"
-                    android:layout_height="wrap_content" />
             </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

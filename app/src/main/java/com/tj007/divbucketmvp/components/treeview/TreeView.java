@@ -29,9 +29,7 @@ import com.tj007.divbucketmvp.components.treeview.base.BaseNodeViewFactory;
 import com.tj007.divbucketmvp.components.treeview.base.SelectableTreeAction;
 import com.tj007.divbucketmvp.components.treeview.helper.TreeHelper;
 
-/**
- * Created by xinyuanzhong on 2017/4/20.
- */
+
 
 public class TreeView implements SelectableTreeAction {
     private TreeNode root;

@@ -18,9 +18,6 @@ import java.util.List;
 
 import com.tj007.divbucketmvp.components.treeview.TreeNode;
 
-/**
- * Created by xinyuanzhong on 2017/4/27.
- */
 
 public interface SelectableTreeAction extends BaseTreeAction {
     void selectNode(TreeNode treeNode);
