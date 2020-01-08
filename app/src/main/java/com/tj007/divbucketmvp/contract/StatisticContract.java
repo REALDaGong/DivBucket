@@ -9,9 +9,11 @@ import java.util.List;
 
 public interface StatisticContract {
     interface View extends BaseView<Presenter> {
-
+        String getEmail();
+        void recommentSuccess(String recommentUrl);
+        void recommentFail();
     }
     interface Presenter extends BasePresenter {
-
+        void requestRecomment();
     }
 }

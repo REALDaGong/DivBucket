@@ -23,7 +23,7 @@ import javax.mail.search.SubjectTerm;
 /**
  * 该框架内部的核心类
  */
-class EmailCore {
+public class EmailCore {
 
     /**
      * 发送邮件

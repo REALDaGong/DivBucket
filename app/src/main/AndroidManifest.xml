@@ -16,17 +16,17 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name="com.tj007.divbucketmvp.mailboxsystem.EmailApplication"
+        android:name=".mailboxsystem.EmailApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_config"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_config"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.tj007.divbucketmvp.view.activity.UserInfoActivity"></activity>
+        <activity android:name=".view.activity.UserInfoActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -38,44 +38,40 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name="com.tj007.divbucketmvp.view.activity.UploadAvatarActivity" />
-        <activity android:name="com.tj007.divbucketmvp.view.activity.HomePageActivity"></activity>
-        <activity android:name="com.tj007.divbucketmvp.view.activity.GoActivity" >
+        <activity android:name=".view.activity.UploadAvatarActivity" />
+        <activity android:name=".view.activity.HomePageActivity" />
+        <activity android:name=".view.activity.GoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tj007.divbucketmvp.view.activity.LoginActivity" ></activity>
-        <activity android:name="com.tj007.divbucketmvp.view.activity.ClipImageActivity" />
-
-
-
+        <activity android:name=".view.activity.LoginActivity" />
+        <activity android:name=".view.activity.ClipImageActivity" />
         <activity
-            android:name="com.tj007.divbucketmvp.view.Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
+            android:name=".view.Main2Activity"
+            android:label="@string/title_activity_main2" />
 
         <meta-data
             android:name="com.tj007.divbucketmvp"
             android:value="string" />
 
         <activity
-            android:name="com.tj007.divbucketmvp.view.ChooseWatchingTargetActivity"
+            android:name=".view.ChooseWatchingTargetActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.tj007.divbucketmvp.view.ShowDetailActivity"
+            android:name=".view.ShowDetailActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name="com.tj007.divbucketmvp.mailboxsystem.activity.ConfigActivity" />
-        <activity android:name="com.tj007.divbucketmvp.mailboxsystem.activity.MainActivity" />
-        <activity android:name="com.tj007.divbucketmvp.mailboxsystem.activity.SendActivity" />
-        <activity android:name="com.tj007.divbucketmvp.mailboxsystem.activity.ListActivity" />
-        <activity android:name="com.tj007.divbucketmvp.mailboxsystem.activity.SettingsActivity" />
-        <activity android:name="com.tj007.divbucketmvp.mailboxsystem.activity.WatchActivity" />
-        <activity android:name="com.tj007.divbucketmvp.mailboxsystem.activity.SplashActivity" />
+        <activity android:name=".mailboxsystem.activity.ConfigActivity" />
+        <activity android:name=".mailboxsystem.activity.MainActivity" />
+        <activity android:name=".mailboxsystem.activity.SendActivity" />
+        <activity android:name=".mailboxsystem.activity.ListActivity" />
+        <activity android:name=".mailboxsystem.activity.SettingsActivity" />
+        <activity android:name=".mailboxsystem.activity.WatchActivity" />
+        <activity android:name=".mailboxsystem.activity.SplashActivity" />
     </application>
 
 </manifest>

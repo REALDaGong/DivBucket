@@ -17,7 +17,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 
-class ObjectManager {
+public class ObjectManager {
 
     //Application的Context对象
     @SuppressLint("StaticFieldLeak")

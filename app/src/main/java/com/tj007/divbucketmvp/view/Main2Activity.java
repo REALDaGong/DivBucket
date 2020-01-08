@@ -309,7 +309,7 @@ public class Main2Activity extends AppCompatActivity implements HomePageUserCont
                     switchFragment(showWatchingTargetView);
                     return true;
                 case R.id.navigation_dashboard:
-                    title.setText("监控统计");
+                    title.setText("推荐");
                     switchFragment(statisticView);
                     return true;
             }

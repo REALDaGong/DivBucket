@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import com.tj007.divbucketmvp.R;
+import com.tj007.divbucketmvp.service.GTPushService;
 import com.tj007.divbucketmvp.view.Main2Activity;
 
 import android.view.WindowManager;
@@ -37,6 +38,8 @@ public class GoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go);
         sharedPreferences= getSharedPreferences("data", Context.MODE_PRIVATE);
+        Intent intent = new Intent(this, GTPushService.class);
+        startService(intent);
         init();
     }
 

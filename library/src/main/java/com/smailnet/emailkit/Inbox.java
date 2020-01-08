@@ -32,7 +32,7 @@ public final class Inbox extends Folder {
                     public void onError(String errMsg) {
                         ObjectManager.getHandler().post(() -> onMsgListener.onError(errMsg));
                     }
-                }),0 , 8*60, TimeUnit.SECONDS);
+                }),0 , 2*60, TimeUnit.SECONDS);
     }
 
     /**
